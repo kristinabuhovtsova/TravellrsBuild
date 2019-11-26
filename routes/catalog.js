@@ -18,17 +18,12 @@ const populationController = require('../controllers/populationController');
 let usersdata=[]
 
 // Country ROUTES
-console.log('start')
-console.log(usersdata)
 router.post ('/signup', (req, res) =>  {
-    console.log('in')
     usersdata.push ({'username':req.body.username, 'password':req.body.password, 'country': req.body.country, 'travells': []})
-    console.log(usersdata);
     res.send('You`ve signed up! Come to sign in')
 });
 
 router.delete ('/signup', (req, res) => {
-    console.log('signin')
     const newdata=[]
     usersdata.map (user => {
         if (user.username!==req.query.username) {
@@ -46,7 +41,6 @@ router.put ('/signup', (req, res) => {
         newdata.push(user)
     }})
     usersdata=newdata
-    console.log(usersdata)
 })
 
 router.get ('/reqsignin', (req, res) =>  {
@@ -83,24 +77,6 @@ router.get ('/statistics', (req, res) => {
     usersdata.forEach(user => list.push({'username': user.username, 'usercountry': user.country, 'viscountries': user.travells}))
     res.jsonp(list)
 })
-/*
-router.get ('/users/:username', (req,res) => {
-    let user=usersdata.find (user => user.username===req.params.username)
-    req.body.trav.map(trav => user.travells.push(trav))
-    user.travells= new Set(user.travells)
-    const list=[]
-    user.travells.forEach (travel => list.push(travel))
-    usersdata.find (user => user.username===req.params.username).travells=list
-    console.log(usersdata)
-})*/
-
-
-// GET catalog home page
-router.get('/', countryController.index);
-
-// GET request for list of all countries.
-router.get('/countries', countryController.country_list);
-
 // GET request for list of all regions.
 router.get('/regions', regionController.region_list);
 
@@ -116,11 +92,5 @@ router.get('/countries/:name', countryController.country_detail);
 router.get('/regions/:name', regionController.countries_of_region);
 
 router.get('/languagies/:name', languageController.countries_of_language);
-/*
-// GET request to update BookInstance.
-router.get('/bookinstance/:id/update', book_instance_controller.bookinstance_update_get);
 
-// POST request to update BookInstance.
-router.post('/bookinstance/:id/update', book_instance_controller.bookinstance_update_post);
-*/
 module.exports = router;
