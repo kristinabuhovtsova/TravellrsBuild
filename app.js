@@ -8,9 +8,11 @@ const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
+const PORT = process.env.PORT || 3001
 
 const app = express();
 
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
