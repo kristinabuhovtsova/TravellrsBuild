@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "devstart": "nodemon ./bin/www",
-    "start": "nodemon ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
