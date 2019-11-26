@@ -86,6 +86,7 @@ router.get('/languagies', languageController.language_list);
 // GET request for sort by population.
 router.get('/sort', populationController.population_sort);
 
+router.get ('/countries', countryController.country_list)
 // Get request for information about particular country
 router.get('/countries/:name', countryController.country_detail);
 
