@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 There are all countries
+    each country, ind in countries
+        p #{ind+1} 
+            a(href='countries/'+country) #{country} 
+        

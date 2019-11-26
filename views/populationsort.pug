@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 There is the rank of countries in descending order of population.
+    each count, ind in rank
+        p #{ind+1} 
+            a(href='countries/'+count.country) #{count.country} 
+            | #{count.population}

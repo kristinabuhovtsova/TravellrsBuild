@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 There are all regions
+    each region, ind in regions
+        p #{ind+1} 
+            a(href='regions/'+region) #{region} 

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 There are all languagies
+    each lang, ind in languagies
+        p #{ind+1}
+            a(href='languagies/'+lang)  #{lang} 

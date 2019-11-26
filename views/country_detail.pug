@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 #{information.name}
+    p Area: #{information.square}
+    p Region: 
+        a(href='../regions/'+information.region) #{information.region}
+    p Population: #{information.population}
+    p Neighbours: #{information.borders} 
+    p Capital : #{information.capital}
+    P Main currency: #{information.currency}
