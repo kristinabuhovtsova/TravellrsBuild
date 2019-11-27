@@ -1,6 +1,6 @@
 const countries = require("../data")
 
-// Display list of all regions.
+
 exports.language_list = function(req, res) {
         let langlist=[]
         countries.map((country) => {
@@ -18,7 +18,6 @@ exports.language_list = function(req, res) {
         res.jsonp(langlist)
 };
 
-//Display list of countries in which people speak a particular language 
 exports.countries_of_language = function(req, res, next) {
         let list=[]
         countries.map((country) => {

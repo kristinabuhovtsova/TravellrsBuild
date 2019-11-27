@@ -1,6 +1,6 @@
 const countries = require('../data');
 
-// Display list of all regions.
+
 exports.region_list = function (req, res) {
   let regionslist = [];
   countries.map((country) => {
@@ -15,7 +15,6 @@ exports.region_list = function (req, res) {
   res.jsonp(regionslist);
 };
 
-//Display list of countries of particular region
 exports.countries_of_region = function (req, res, next) {
   const list = [];
   countries.map((country) => {

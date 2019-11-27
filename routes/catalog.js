@@ -1,12 +1,8 @@
-/*
-DEBUG=world-express:* npm run devstart
-*/
 
 const express = require('express');
 
 const router = express.Router();
 
-// Требующиеся модули контроллеров.
 const countryController = require('../controllers/countryController');
 
 const regionController = require('../controllers/regionController');
@@ -17,7 +13,6 @@ const populationController = require('../controllers/populationController');
 
 let usersdata=[]
 
-// Country ROUTES
 router.post ('/signup', (req, res) =>  {
     usersdata.push ({'username':req.body.username, 'password':req.body.password, 'country': req.body.country, 'travells': []})
     res.send('You`ve signed up! Come to sign in')
@@ -77,17 +72,14 @@ router.get ('/statistics', (req, res) => {
     usersdata.forEach(user => list.push({'username': user.username, 'usercountry': user.country, 'viscountries': user.travells}))
     res.jsonp(list)
 })
-// GET request for list of all regions.
 router.get('/regions', regionController.region_list);
 
-// GET request for list of all languagies.
 router.get('/languagies', languageController.language_list);
 
-// GET request for sort by population.
 router.get('/sort', populationController.population_sort);
 
 router.get ('/countries', countryController.country_list)
-// Get request for information about particular country
+
 router.get('/countries/:name', countryController.country_detail);
 
 router.get('/regions/:name', regionController.countries_of_region);
